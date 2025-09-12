@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- صفحه لاگین -->
-    <div class="login-container" id="login-page">
-        <div class="login-form">
+    <!-- صفحه احراز هویت -->
+    <div class="auth-container" id="auth-page">
+        <div class="auth-form" id="login-form">
             <h2>ورود به سایت فیلم</h2>
+            <div id="login-alert"></div>
             <div class="form-group">
                 <label for="username">نام کاربری</label>
                 <input type="text" id="username" placeholder="نام کاربری خود را وارد کنید">
@@ -20,9 +21,30 @@
                 <label for="password">رمز عبور</label>
                 <input type="password" id="password" placeholder="رمز عبور خود را وارد کنید">
             </div>
-            <button class="login-btn" id="login-btn">ورود</button>
-            <div class="login-footer">
-                حساب کاربری ندارید؟ <a href="#" id="register-link">ثبت نام کنید</a>
+            <button class="auth-btn" id="login-btn">ورود</button>
+            <div class="form-switcher">
+                حساب کاربری ندارید؟ <a id="show-register">ثبت نام کنید</a>
+            </div>
+        </div>
+
+        <div class="auth-form" id="register-form" style="display: none;">
+            <h2>ثبت نام در سایت فیلم</h2>
+            <div id="register-alert"></div>
+            <div class="form-group">
+                <label for="reg-username">نام کاربری</label>
+                <input type="text" id="reg-username" placeholder="یک نام کاربری انتخاب کنید">
+            </div>
+            <div class="form-group">
+                <label for="reg-password">رمز عبور</label>
+                <input type="password" id="reg-password" placeholder="یک رمز عبور انتخاب کنید">
+            </div>
+            <div class="form-group">
+                <label for="reg-confirm">تکرار رمز عبور</label>
+                <input type="password" id="reg-confirm" placeholder="رمز عبور را تکرار کنید">
+            </div>
+            <button class="auth-btn" id="register-btn">ثبت نام</button>
+            <div class="form-switcher">
+                قبلاً حساب کاربری دارید؟ <a id="show-login">وارد شوید</a>
             </div>
         </div>
     </div>
@@ -32,20 +54,27 @@
         <!-- هدر -->
         <header>
             <div class="container header-content">
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
                 <a href="#" class="logo">
                     <i class="fas fa-film"></i>
                     فیلم‌ها
                 </a>
+                
                 <div class="user-info">
                     <span id="user-greeting">خوش آمدید، کاربر</span>
                     <button class="logout-btn" id="logout-btn">خروج</button>
                 </div>
             </div>
+            
             <div class="container">
                 <nav>
-                    <ul>
+                    <ul id="main-nav">
                         <li><a href="#">خانه</a></li>
                         <li><a href="#">فیلم‌ها</a></li>
+                        <li><a href="#">سریال‌ها</a></li>
                         <li><a href="#">درباره ما</a></li>
                         <li><a href="#">تماس با ما</a></li>
                     </ul>
@@ -56,8 +85,8 @@
         <div class="container">
             <!-- بخش جستجو -->
             <div class="search-container">
-                <input type="text" placeholder="جستجوی فیلم...">
-                <button>جستجو</button>
+                <input type="text" id="search-input" placeholder="جستجوی فیلم...">
+                <button id="search-btn">جستجو</button>
             </div>
 
             <!-- بخش فیلم‌ها -->
@@ -115,6 +144,7 @@
                 <div class="footer-links">
                     <a href="#">خانه</a>
                     <a href="#">فیلم‌ها</a>
+                    <a href="#">سریال‌ها</a>
                     <a href="#">درباره ما</a>
                     <a href="#">تماس با ما</a>
                     <a href="#">قوانین و مقررات</a>

@@ -75,6 +75,15 @@ const movies = [
 let currentUser = null;
 let currentMovieId = null;
 
+// بارگذاری کاربران از localStorage یا ایجاد آرایه خالی
+let users = JSON.parse(localStorage.getItem('users')) || [];
+
+// کاربر پیش‌فرض برای تست
+if (users.length === 0) {
+    users.push({ username: "user", password: "123" });
+    localStorage.setItem('users', JSON.stringify(users));
+}
+
 // نمایش فیلم‌ها در صفحه
 function renderMovies() {
     const moviesContainer = document.getElementById('movies-container');
@@ -177,6 +186,15 @@ function downloadMovie(movieId) {
 
 // نمایش نظرات یک فیلم
 function showComments(movieId) {
+    // بررسی آیا کاربر وارد سیستم شده است
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    
+    if (!isLoggedIn) {
+        showAlert('لطفاً ابتدا وارد حساب کاربری خود شوید.', 'error', 'login-alert');
+        showLoginForm();
+        return;
+    }
+    
     currentMovieId = movieId;
     const commentsModal = document.getElementById('comments-modal');
     commentsModal.style.display = 'flex';
@@ -192,21 +210,27 @@ function closeComments() {
 
 // افزودن نظر جدید برای فیلم
 function addComment() {
-    if (!currentUser) {
-        alert('لطفاً ابتدا وارد حساب کاربری خود شوید.');
+    // بررسی آیا کاربر وارد سیستم شده است
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const username = localStorage.getItem('username');
+    
+    if (!isLoggedIn || !username) {
+        showAlert('لطفاً ابتدا وارد حساب کاربری خود شوید.', 'error', 'login-alert');
+        closeComments();
+        showLoginForm();
         return;
     }
     
     const commentText = document.getElementById('comment-text').value.trim();
     if (!commentText) {
-        alert('لطفاً متن نظر خود را وارد کنید.');
+        showAlert('لطفاً متن نظر خود را وارد کنید.', 'error', 'comments-alert');
         return;
     }
     
     const movie = movies.find(m => m.id === currentMovieId);
     if (movie) {
         const newComment = {
-            author: currentUser,
+            author: username,
             text: commentText,
             date: new Date().toLocaleDateString('fa-IR')
         };
@@ -215,8 +239,22 @@ function addComment() {
         renderComments(currentMovieId);
         document.getElementById('comment-text').value = '';
         
-        alert('نظر شما با موفقیت ثبت شد.');
+        alert('نظر شما با успеیت ثبت شد.');
     }
+}
+
+// نمایش فرم لاگین
+function showLoginForm() {
+    document.getElementById('login-form').style.display = 'block';
+    document.getElementById('register-form').style.display = 'none';
+    document.getElementById('auth-page').style.display = 'flex';
+    document.getElementById('main-content').style.display = 'none';
+}
+
+// نمایش فرم ثبت نام
+function showRegisterForm() {
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('register-form').style.display = 'block';
 }
 
 // مدیریت فرآیند لاگین
@@ -225,15 +263,29 @@ function login() {
     const password = document.getElementById('password').value.trim();
     
     if (!username || !password) {
-        alert('لطفاً نام کاربری و رمز عبور خود را وارد کنید.');
+        showAlert('لطفاً نام کاربری و رمز عبور خود را وارد کنید.', 'error', 'login-alert');
         return;
     }
     
-    // در یک پیاده‌سازی واقعی، اینجا اعتبارسنجی انجام می‌شود
+    // بارگذاری مجدد کاربران از localStorage
+    users = JSON.parse(localStorage.getItem('users')) || [];
+    
+    // بررسی وجود کاربر
+    const user = users.find(u => u.username === username && u.password === password);
+    
+    if (!user) {
+        showAlert('نام کاربری یا رمز عبور اشتباه است.', 'error', 'login-alert');
+        return;
+    }
+    
+    // ذخیره وضعیت لاگین در localStorage
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('username', username);
+    
     currentUser = username;
     
     // نمایش محتوای اصلی و مخفی کردن صفحه لاگین
-    document.getElementById('login-page').style.display = 'none';
+    document.getElementById('auth-page').style.display = 'none';
     document.getElementById('main-content').style.display = 'block';
     document.getElementById('user-greeting').textContent = `خوش آمدید، ${username}`;
     
@@ -241,23 +293,130 @@ function login() {
     renderMovies();
 }
 
+// مدیریت فرآیند ثبت نام
+function register() {
+    const username = document.getElementById('reg-username').value.trim();
+    const password = document.getElementById('reg-password').value.trim();
+    const confirm = document.getElementById('reg-confirm').value.trim();
+    
+    if (!username || !password || !confirm) {
+        showAlert('لطفاً تمام فیلدها را پر کنید.', 'error', 'register-alert');
+        return;
+    }
+    
+    if (password !== confirm) {
+        showAlert('رمز عبور و تکرار آن مطابقت ندارند.', 'error', 'register-alert');
+        return;
+    }
+    
+    // بارگذاری مجدد کاربران از localStorage
+    users = JSON.parse(localStorage.getItem('users')) || [];
+    
+    // بررسی وجود کاربر
+    const userExists = users.some(u => u.username === username);
+    
+    if (userExists) {
+        showAlert('این نام کاربری قبلاً ثبت شده است.', 'error', 'register-alert');
+        return;
+    }
+    
+    // اضافه کردن کاربر جدید
+    users.push({ username, password });
+    localStorage.setItem('users', JSON.stringify(users));
+    
+    showAlert('ثبت نام با موفقیت انجام شد. اکنون می‌توانید وارد شوید.', 'success', 'register-alert');
+    
+    // نمایش فرم لاگین پس از 2 ثانیه
+    setTimeout(() => {
+        showLoginForm();
+        document.getElementById('username').value = username;
+        document.getElementById('password').value = '';
+    }, 2000);
+}
+
 // مدیریت خروج کاربر
 function logout() {
     currentUser = null;
+    // حذف وضعیت لاگین از localStorage
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    
     document.getElementById('username').value = '';
     document.getElementById('password').value = '';
-    document.getElementById('login-page').style.display = 'flex';
+    document.getElementById('auth-page').style.display = 'flex';
     document.getElementById('main-content').style.display = 'none';
+    
+    showLoginForm();
+}
+
+// نمایش پیام به کاربر
+function showAlert(message, type, elementId) {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `alert alert-${type}`;
+    alertDiv.textContent = message;
+    
+    const container = document.getElementById(elementId);
+    container.innerHTML = '';
+    container.appendChild(alertDiv);
+    
+    // حذف خودکار پیام پس از 5 ثانیه
+    setTimeout(() => {
+        alertDiv.remove();
+    }, 5000);
+}
+
+// کنترل منوی همبرگری
+function toggleMenu() {
+    const nav = document.getElementById('main-nav');
+    nav.classList.toggle('active');
+}
+
+// بررسی وضعیت لاگین в هنگام بارگذاری صفحه
+function checkAuthStatus() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const username = localStorage.getItem('username');
+    
+    if (isLoggedIn && username) {
+        currentUser = username;
+        document.getElementById('auth-page').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+        document.getElementById('user-greeting').textContent = `خوش آمدید، ${username}`;
+        renderMovies();
+        return true;
+    }
+    return false;
 }
 
 // مقداردهی اولیه هنگام بارگذاری صفحه
 document.addEventListener('DOMContentLoaded', function() {
+    // بررسی وضعیت احراز هویت
+    checkAuthStatus();
+    
     // رویدادها
     document.getElementById('login-btn').addEventListener('click', login);
+    document.getElementById('register-btn').addEventListener('click', register);
     document.getElementById('logout-btn').addEventListener('click', logout);
     document.getElementById('close-video').addEventListener('click', closeVideo);
     document.getElementById('close-comments').addEventListener('click', closeComments);
     document.getElementById('submit-comment').addEventListener('click', addComment);
+    document.getElementById('menu-toggle').addEventListener('click', toggleMenu);
+    
+    // رویداد برای تغییر فرم‌ها
+    document.getElementById('show-register').addEventListener('click', showRegisterForm);
+    document.getElementById('show-login').addEventListener('click', showLoginForm);
+    
+    // امکان ورود با دکمه Enter
+    document.getElementById('password').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            login();
+        }
+    });
+    
+    document.getElementById('reg-password').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            register();
+        }
+    });
     
     // بستن ویدئو با کلیک خارج از آن
     document.getElementById('video-player').addEventListener('click', function(e) {
@@ -273,10 +432,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // امکان ورود با دکمه Enter
-    document.getElementById('password').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            login();
-        }
-    });
+    // رندر کردن فیلم‌ها
+    renderMovies();
 });
