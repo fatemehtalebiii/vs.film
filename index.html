@@ -8,11 +8,10 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- صفحه احراز هویت -->
-    <div class="auth-container" id="auth-page">
-        <div class="auth-form" id="login-form">
+    <!-- صفحه لاگین -->
+    <div class="login-container" id="login-page">
+        <div class="login-form">
             <h2>ورود به سایت فیلم</h2>
-            <div id="login-alert"></div>
             <div class="form-group">
                 <label for="username">نام کاربری</label>
                 <input type="text" id="username" placeholder="نام کاربری خود را وارد کنید">
@@ -21,30 +20,9 @@
                 <label for="password">رمز عبور</label>
                 <input type="password" id="password" placeholder="رمز عبور خود را وارد کنید">
             </div>
-            <button class="auth-btn" id="login-btn">ورود</button>
-            <div class="form-switcher">
-                حساب کاربری ندارید؟ <a id="show-register">ثبت نام کنید</a>
-            </div>
-        </div>
-
-        <div class="auth-form" id="register-form" style="display: none;">
-            <h2>ثبت نام در سایت فیلم</h2>
-            <div id="register-alert"></div>
-            <div class="form-group">
-                <label for="reg-username">نام کاربری</label>
-                <input type="text" id="reg-username" placeholder="یک نام کاربری انتخاب کنید">
-            </div>
-            <div class="form-group">
-                <label for="reg-password">رمز عبور</label>
-                <input type="password" id="reg-password" placeholder="یک رمز عبور انتخاب کنید">
-            </div>
-            <div class="form-group">
-                <label for="reg-confirm">تکرار رمز عبور</label>
-                <input type="password" id="reg-confirm" placeholder="رمز عبور را تکرار کنید">
-            </div>
-            <button class="auth-btn" id="register-btn">ثبت نام</button>
-            <div class="form-switcher">
-                قبلاً حساب کاربری دارید؟ <a id="show-login">وارد شوید</a>
+            <button class="login-btn" id="login-btn">ورود</button>
+            <div class="login-footer">
+                حساب کاربری ندارید؟ <a href="#" id="register-link">ثبت نام کنید</a>
             </div>
         </div>
     </div>
@@ -54,29 +32,32 @@
         <!-- هدر -->
         <header>
             <div class="container header-content">
-                <button class="menu-toggle" id="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 
                 <a href="#" class="logo">
                     <i class="fas fa-film"></i>
                     فیلم‌ها
                 </a>
-                
                 <div class="user-info">
                     <span id="user-greeting">خوش آمدید، کاربر</span>
                     <button class="logout-btn" id="logout-btn">خروج</button>
                 </div>
             </div>
-            
             <div class="container">
                 <nav>
-                    <ul id="main-nav">
-                        <li><a href="#">خانه</a></li>
-                        <li><a href="#">فیلم‌ها</a></li>
-                        <li><a href="#">سریال‌ها</a></li>
-                        <li><a href="#">درباره ما</a></li>
-                        <li><a href="#">تماس با ما</a></li>
+                    <ul id="nav-menu">
+                        <li><a href="#" class="active" data-genre="all"><i class="fas fa-list"></i> همه ژانرها</a></li>
+                        <li><a href="#" data-genre="action"><i class="fas fa-fist-raised"></i> اکشن</a></li>
+                        <li><a href="#" data-genre="drama"><i class="fas fa-theater-masks"></i> درام</a></li>
+                        <li><a href="#" data-genre="comedy"><i class="fas fa-laugh"></i> کمدی</a></li>
+                        <li><a href="#" data-genre="sci-fi"><i class="fas fa-rocket"></i> علمی تخیلی</a></li>
+                        <li><a href="#" data-genre="fantasy"><i class="fas fa-dragon"></i> فانتزی</a></li>
+                        <li><a href="#" data-genre="horror"><i class="fas fa-ghost"></i> ترسناک</a></li>
+                        <li><a href="#" data-genre="romance"><i class="fas fa-heart"></i> عاشقانه</a></li>
                     </ul>
                 </nav>
             </div>
@@ -85,13 +66,14 @@
         <div class="container">
             <!-- بخش جستجو -->
             <div class="search-container">
-                <input type="text" id="search-input" placeholder="جستجوی فیلم...">
-                <button id="search-btn">جستجو</button>
+                <input type="text" id="search-input" placeholder="جستجوی فیلم بر اساس عنوان، کارگردان یا بازیگر...">
+                <button id="search-btn"><i class="fas fa-search"></i> جستجو</button>
+                <div class="search-suggestions" id="search-suggestions"></div>
             </div>
 
             <!-- بخش فیلم‌ها -->
             <section class="movies-section">
-                <h2 class="section-title">فیلم‌های برتر</h2>
+                <h2 class="section-title"><i class="fas fa-film"></i> فیلم‌های برتر</h2>
                 <div class="movies-grid" id="movies-container">
                     <!-- فیلم‌ها توسط جاوااسکریپت اضافه خواهند شد -->
                 </div>
@@ -139,17 +121,10 @@
         <footer>
             <div class="container footer-content">
                 <div class="footer-logo">
-                    <i class="fas fa-film"></i> سایت فیلم
+                    <i class="fas fa-film"></i> سینماپلاس
                 </div>
-                <div class="footer-links">
-                    <a href="#">خانه</a>
-                    <a href="#">فیلم‌ها</a>
-                    <a href="#">سریال‌ها</a>
-                    <a href="#">درباره ما</a>
-                    <a href="#">تماس با ما</a>
-                    <a href="#">قوانین و مقررات</a>
-                </div>
-                <p class="copyright">© 2023 کلیه حقوق محفوظ است.</p>
+                
+                <p class="copyright">© 2023 کلیه حقوق برای سینماپلاس محفوظ است.</p>
             </div>
         </footer>
     </div>

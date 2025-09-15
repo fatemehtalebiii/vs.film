@@ -6,6 +6,9 @@ const movies = [
         description: "یک ماجراجویی فضایی حماسی با جلوه‌های ویژه خیره کننده و داستانی جذاب.",
         poster: "https://picsum.photos/seed/movie1/300/400",
         video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        genre: "sci-fi",
+        director: "احمد محمدی",
+        actors: ["علی رضایی", "مریم حسینی", "رضا محمودی"],
         comments: [
             { author: "علی محمدی", text: "فیلم بسیار جذابی بود. بازی بازیگران فوق‌العاده بود.", date: "۱۴۰۲/۰۵/۱۰" },
             { author: "مریم رضایی", text: "من این فیلم رو دوست داشتم. داستان گیرا و جذابی داشت.", date: "۱۴۰۲/۰۵/۰۸" }
@@ -17,6 +20,9 @@ const movies = [
         description: "کاوش یک شهر باستانی پر از رمز و راز و خطرات غیرمنتظره.",
         poster: "https://picsum.photos/seed/movie2/300/400",
         video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+        genre: "action",
+        director: "محمد کریمی",
+        actors: ["سارا احمدی", "امیر حسینی", "نازنین رضایی"],
         comments: [
             { author: "رضا حسینی", text: "جلوه‌های ویژه فیلم واقعا حیرت‌انگیز بودند.", date: "۱۴۰۲/۰۵/۰۵" }
         ]
@@ -27,6 +33,9 @@ const movies = [
         description: "سفری بین کهکشانی به دنبال منشأ حیات در جهان.",
         poster: "https://picsum.photos/seed/movie3/300/400",
         video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        genre: "sci-fi",
+        director: "فاطمه زاهدی",
+        actors: ["حسین محمدی", "لیلا احمدی", "مهدی رضایی"],
         comments: []
     },
     {
@@ -35,6 +44,9 @@ const movies = [
         description: "داستان عاشقانه‌ای که در پس‌زمینه یک روستای کوچک رخ می‌دهد.",
         poster: "https://picsum.photos/seed/movie4/300/400",
         video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        genre: "romance",
+        director: "سپیده جعفری",
+        actors: ["محمد امینی", "نرگس محمدی", "امیرحسین رضایی"],
         comments: []
     },
     {
@@ -43,6 +55,9 @@ const movies = [
         description: "یک داستان معمایی پر از حوادث غیرمنتظره و شگفت‌انگیز.",
         poster: "https://picsum.photos/seed/movie5/300/400",
         video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+        genre: "horror",
+        director: "رضا احمدی",
+        actors: ["سپیده حسینی", "امیر محمدی", "نازیلا رضایی"],
         comments: []
     },
     {
@@ -51,6 +66,9 @@ const movies = [
         description: "نبرد بین خیر و شر در جهانی پر از ابرقهرمانان و شروران.",
         poster: "https://picsum.photos/seed/movie6/300/400",
         video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+        genre: "action",
+        director: "امیرحسین محمدی",
+        actors: ["حسین رضایی", "مریم احمدی", "علی حسینی"],
         comments: []
     },
     {
@@ -59,6 +77,9 @@ const movies = [
         description: "کشف یک راز باستانی که می‌تواند سرنوشت بشر را تغییر دهد.",
         poster: "https://picsum.photos/seed/movie7/300/400",
         video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+        genre: "fantasy",
+        director: "نازنین زاهدی",
+        actors: ["محمد رضایی", "سارا محمدی", "امیر حسینی"],
         comments: []
     },
     {
@@ -67,6 +88,53 @@ const movies = [
         description: "سفری به ناشناخته‌ها برای کشف افق‌های جدید دانش.",
         poster: "https://picsum.photos/seed/movie8/300/400",
         video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+        genre: "sci-fi",
+        director: "حسین احمدی",
+        actors: ["رضا محمدی", "نرگس رضایی", "امیرحسین حسینی"],
+        comments: []
+    },
+    {
+        id: 9,
+        title: "خنده‌دارترین ماجرا",
+        description: "یک کمدی مفرح با بازیگران محبوب سینما.",
+        poster: "https://picsum.photos/seed/movie9/300/400",
+        video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        genre: "comedy",
+        director: "پیمان جعفری",
+        actors: ["سپیده محمدی", "امیر رضایی", "مریم حسینی"],
+        comments: []
+    },
+    {
+        id: 10,
+        title: "اشک‌های بهشت",
+        description: "داستان احساسی درباره عشق و ازخودگذشتگی.",
+        poster: "https://picsum.photos/seed/movie10/300/400",
+        video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+        genre: "drama",
+        director: "فریبا زاهدی",
+        actors: ["حسین احمدی", "نازنین محمدی", "امیرحسین رضایی"],
+        comments: []
+    },
+    {
+        id: 11,
+        title: "جادوگر جنگل",
+        description: "ماجراجویی در جنگلی اسرارآمیز پر از موجودات افسانه‌ای.",
+        poster: "https://picsum.photos/seed/movie11/300/400",
+        video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+        genre: "fantasy",
+        director: "رضا محمدی",
+        actors: ["سارا رضایی", "امیر حسینی", "مریم احمدی"],
+        comments: []
+    },
+    {
+        id: 12,
+        title: "عشق در باران",
+        description: "داستان عاشقانه‌ای که در یک شهر بارانی آغاز می‌شود.",
+        poster: "https://picsum.photos/seed/movie12/300/400",
+        video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+        genre: "romance",
+        director: "نرگس جعفری",
+        actors: ["امیرحسین محمدی", "سپیده رضایی", "حسین احمدی"],
         comments: []
     }
 ];
@@ -74,28 +142,51 @@ const movies = [
 // متغیرهای global
 let currentUser = null;
 let currentMovieId = null;
+let currentGenre = 'all';
 
-// بارگذاری کاربران از localStorage یا ایجاد آرایه خالی
-let users = JSON.parse(localStorage.getItem('users')) || [];
-
-// کاربر پیش‌فرض برای تست
-if (users.length === 0) {
-    users.push({ username: "user", password: "123" });
-    localStorage.setItem('users', JSON.stringify(users));
+// بررسی وضعیت ورود کاربر از localStorage
+function checkLoginStatus() {
+    const savedUser = localStorage.getItem('currentUser');
+    if (savedUser) {
+        currentUser = savedUser;
+        document.getElementById('login-page').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+        document.getElementById('user-greeting').textContent = `خوش آمدید، ${savedUser}`;
+        renderMovies();
+    }
 }
 
 // نمایش فیلم‌ها در صفحه
-function renderMovies() {
+function renderMovies(moviesToRender = null) {
     const moviesContainer = document.getElementById('movies-container');
     moviesContainer.innerHTML = '';
     
-    movies.forEach(movie => {
+    let filteredMovies = moviesToRender || movies;
+    
+    if (currentGenre !== 'all' && !moviesToRender) {
+        filteredMovies = movies.filter(movie => movie.genre === currentGenre);
+    }
+    
+    if (filteredMovies.length === 0) {
+        moviesContainer.innerHTML = `
+            <div class="no-results">
+                <i class="fas fa-search"></i>
+                <p>هیچ فیلمی یافت نشد</p>
+            </div>
+        `;
+        return;
+    }
+    
+    filteredMovies.forEach(movie => {
+        const genreText = getGenreText(movie.genre);
+        
         const movieElement = document.createElement('div');
         movieElement.className = 'movie-card';
         movieElement.innerHTML = `
             <img src="${movie.poster}" alt="${movie.title}" class="movie-poster">
             <div class="movie-info">
                 <h3 class="movie-title">${movie.title}</h3>
+                <span class="movie-genre">${genreText}</span>
                 <p class="movie-description">${movie.description}</p>
                 <div class="movie-actions">
                     <button class="btn btn-watch" onclick="watchMovie(${movie.id})">
@@ -112,6 +203,120 @@ function renderMovies() {
         `;
         moviesContainer.appendChild(movieElement);
     });
+}
+
+// دریافت متن فارسی برای ژانر
+function getGenreText(genre) {
+    const genres = {
+        'all': 'همه',
+        'action': 'اکشن',
+        'drama': 'درام',
+        'comedy': 'کمدی',
+        'sci-fi': 'علمی تخیلی',
+        'fantasy': 'فانتزی',
+        'horror': 'ترسناک',
+        'romance': 'عاشقانه'
+    };
+    
+    return genres[genre] || genre;
+}
+
+// جستجوی فیلم‌ها
+function searchMovies(query) {
+    if (!query || query.trim() === '') {
+        renderMovies();
+        hideSuggestions();
+        return;
+    }
+    
+    const searchTerm = query.toLowerCase().trim();
+    
+    const results = movies.filter(movie => 
+        movie.title.toLowerCase().includes(searchTerm) ||
+        movie.description.toLowerCase().includes(searchTerm) ||
+        movie.genre.toLowerCase().includes(searchTerm) ||
+        movie.director.toLowerCase().includes(searchTerm) ||
+        movie.actors.some(actor => actor.toLowerCase().includes(searchTerm))
+    );
+    
+    renderMovies(results);
+}
+
+// نمایش پیشنهادات جستجو
+function showSuggestions(query) {
+    if (!query || query.trim() === '') {
+        hideSuggestions();
+        return;
+    }
+    
+    const searchTerm = query.toLowerCase().trim();
+    const suggestions = [];
+    
+    // پیدا کردن پیشنهادات از عنوان فیلم‌ها
+    movies.forEach(movie => {
+        if (movie.title.toLowerCase().includes(searchTerm)) {
+            suggestions.push(movie.title);
+        }
+    });
+    
+    // پیدا کردن پیشنهادات از نام کارگردان‌ها
+    movies.forEach(movie => {
+        if (movie.director.toLowerCase().includes(searchTerm) && !suggestions.includes(movie.director)) {
+            suggestions.push(movie.director);
+        }
+    });
+    
+    // پیدا کردن پیشنهادات از نام بازیگران
+    movies.forEach(movie => {
+        movie.actors.forEach(actor => {
+            if (actor.toLowerCase().includes(searchTerm) && !suggestions.includes(actor)) {
+                suggestions.push(actor);
+            }
+        });
+    });
+    
+    // پیدا کردن پیشنهادات از ژانرها
+    const genreTexts = {
+        'action': 'اکشن',
+        'drama': 'درام',
+        'comedy': 'کمدی',
+        'sci-fi': 'علمی تخیلی',
+        'fantasy': 'فانتزی',
+        'horror': 'ترسناک',
+        'romance': 'عاشقانه'
+    };
+    
+    Object.entries(genreTexts).forEach(([key, value]) => {
+        if (value.includes(searchTerm) && !suggestions.includes(value)) {
+            suggestions.push(value);
+        }
+    });
+    
+    // نمایش پیشنهادات
+    const suggestionsContainer = document.getElementById('search-suggestions');
+    suggestionsContainer.innerHTML = '';
+    
+    if (suggestions.length > 0) {
+        suggestions.slice(0, 5).forEach(suggestion => {
+            const suggestionElement = document.createElement('div');
+            suggestionElement.className = 'search-suggestion';
+            suggestionElement.textContent = suggestion;
+            suggestionElement.addEventListener('click', () => {
+                document.getElementById('search-input').value = suggestion;
+                searchMovies(suggestion);
+                hideSuggestions();
+            });
+            suggestionsContainer.appendChild(suggestionElement);
+        });
+        suggestionsContainer.style.display = 'block';
+    } else {
+        hideSuggestions();
+    }
+}
+
+// پنهان کردن پیشنهادات جستجو
+function hideSuggestions() {
+    document.getElementById('search-suggestions').style.display = 'none';
 }
 
 // نمایش نظرات یک فیلم خاص
@@ -186,15 +391,6 @@ function downloadMovie(movieId) {
 
 // نمایش نظرات یک فیلم
 function showComments(movieId) {
-    // بررسی آیا کاربر وارد سیستم شده است
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    
-    if (!isLoggedIn) {
-        showAlert('لطفاً ابتدا وارد حساب کاربری خود شوید.', 'error', 'login-alert');
-        showLoginForm();
-        return;
-    }
-    
     currentMovieId = movieId;
     const commentsModal = document.getElementById('comments-modal');
     commentsModal.style.display = 'flex';
@@ -210,27 +406,21 @@ function closeComments() {
 
 // افزودن نظر جدید برای فیلم
 function addComment() {
-    // بررسی آیا کاربر وارد سیستم شده است
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    const username = localStorage.getItem('username');
-    
-    if (!isLoggedIn || !username) {
-        showAlert('لطفاً ابتدا وارد حساب کاربری خود شوید.', 'error', 'login-alert');
-        closeComments();
-        showLoginForm();
+    if (!currentUser) {
+        alert('لطفاً ابتدا وارد حساب کاربری خود شوید.');
         return;
     }
     
     const commentText = document.getElementById('comment-text').value.trim();
     if (!commentText) {
-        showAlert('لطفاً متن نظر خود را وارد کنید.', 'error', 'comments-alert');
+        alert('لطفاً متن نظر خود را وارد کنید.');
         return;
     }
     
     const movie = movies.find(m => m.id === currentMovieId);
     if (movie) {
         const newComment = {
-            author: username,
+            author: currentUser,
             text: commentText,
             date: new Date().toLocaleDateString('fa-IR')
         };
@@ -243,49 +433,24 @@ function addComment() {
     }
 }
 
-// نمایش فرم لاگین
-function showLoginForm() {
-    document.getElementById('login-form').style.display = 'block';
-    document.getElementById('register-form').style.display = 'none';
-    document.getElementById('auth-page').style.display = 'flex';
-    document.getElementById('main-content').style.display = 'none';
-}
-
-// نمایش فرم ثبت نام
-function showRegisterForm() {
-    document.getElementById('login-form').style.display = 'none';
-    document.getElementById('register-form').style.display = 'block';
-}
-
 // مدیریت فرآیند لاگین
 function login() {
     const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
     
     if (!username || !password) {
-        showAlert('لطفاً نام کاربری و رمز عبور خود را وارد کنید.', 'error', 'login-alert');
+        alert('لطفاً نام کاربری و رمز عبور خود را وارد کنید.');
         return;
     }
     
-    // بارگذاری مجدد کاربران از localStorage
-    users = JSON.parse(localStorage.getItem('users')) || [];
-    
-    // بررسی وجود کاربر
-    const user = users.find(u => u.username === username && u.password === password);
-    
-    if (!user) {
-        showAlert('نام کاربری یا رمز عبور اشتباه است.', 'error', 'login-alert');
-        return;
-    }
-    
-    // ذخیره وضعیت لاگین در localStorage
-    localStorage.setItem('isLoggedIn', 'true');
-    localStorage.setItem('username', username);
-    
+    // در یک پیاده‌سازی واقعی، اینجا اعتبارسنجی انجام می‌شود
     currentUser = username;
     
+    // ذخیره وضعیت ورود در localStorage
+    localStorage.setItem('currentUser', username);
+    
     // نمایش محتوای اصلی و مخفی کردن صفحه لاگین
-    document.getElementById('auth-page').style.display = 'none';
+    document.getElementById('login-page').style.display = 'none';
     document.getElementById('main-content').style.display = 'block';
     document.getElementById('user-greeting').textContent = `خوش آمدید، ${username}`;
     
@@ -293,129 +458,93 @@ function login() {
     renderMovies();
 }
 
-// مدیریت فرآیند ثبت نام
-function register() {
-    const username = document.getElementById('reg-username').value.trim();
-    const password = document.getElementById('reg-password').value.trim();
-    const confirm = document.getElementById('reg-confirm').value.trim();
-    
-    if (!username || !password || !confirm) {
-        showAlert('لطفاً تمام فیلدها را پر کنید.', 'error', 'register-alert');
-        return;
-    }
-    
-    if (password !== confirm) {
-        showAlert('رمز عبور و تکرار آن مطابقت ندارند.', 'error', 'register-alert');
-        return;
-    }
-    
-    // بارگذاری مجدد کاربران از localStorage
-    users = JSON.parse(localStorage.getItem('users')) || [];
-    
-    // بررسی وجود کاربر
-    const userExists = users.some(u => u.username === username);
-    
-    if (userExists) {
-        showAlert('این نام کاربری قبلاً ثبت شده است.', 'error', 'register-alert');
-        return;
-    }
-    
-    // اضافه کردن کاربر جدید
-    users.push({ username, password });
-    localStorage.setItem('users', JSON.stringify(users));
-    
-    showAlert('ثبت نام با موفقیت انجام شد. اکنون می‌توانید وارد شوید.', 'success', 'register-alert');
-    
-    // نمایش فرم لاگین پس از 2 ثانیه
-    setTimeout(() => {
-        showLoginForm();
-        document.getElementById('username').value = username;
-        document.getElementById('password').value = '';
-    }, 2000);
-}
-
 // مدیریت خروج کاربر
 function logout() {
     currentUser = null;
-    // حذف وضعیت لاگین از localStorage
-    localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('username');
+    // حذف وضعیت ورود از localStorage
+    localStorage.removeItem('currentUser');
     
     document.getElementById('username').value = '';
     document.getElementById('password').value = '';
-    document.getElementById('auth-page').style.display = 'flex';
+    document.getElementById('login-page').style.display = 'flex';
     document.getElementById('main-content').style.display = 'none';
-    
-    showLoginForm();
 }
 
-// نمایش پیام به کاربر
-function showAlert(message, type, elementId) {
-    const alertDiv = document.createElement('div');
-    alertDiv.className = `alert alert-${type}`;
-    alertDiv.textContent = message;
+// فیلتر کردن فیلم‌ها بر اساس ژانر
+function filterMoviesByGenre(genre) {
+    currentGenre = genre;
+    renderMovies();
     
-    const container = document.getElementById(elementId);
-    container.innerHTML = '';
-    container.appendChild(alertDiv);
+    // به روز رسانی وضعیت فعال منو
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.classList.remove('active');
+    });
     
-    // حذف خودکار پیام پس از 5 ثانیه
-    setTimeout(() => {
-        alertDiv.remove();
-    }, 5000);
+    document.querySelector(`nav ul li a[data-genre="${genre}"]`).classList.add('active');
+    
+    // بستن منو در حالت موبایل پس از انتخاب
+    toggleMenu();
 }
 
-// کنترل منوی همبرگری
+// toggle منو در حالت موبایل
 function toggleMenu() {
-    const nav = document.getElementById('main-nav');
-    nav.classList.toggle('active');
-}
-
-// بررسی وضعیت لاگین в هنگام بارگذاری صفحه
-function checkAuthStatus() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    const username = localStorage.getItem('username');
-    
-    if (isLoggedIn && username) {
-        currentUser = username;
-        document.getElementById('auth-page').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
-        document.getElementById('user-greeting').textContent = `خوش آمدید، ${username}`;
-        renderMovies();
-        return true;
-    }
-    return false;
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.classList.toggle('show');
 }
 
 // مقداردهی اولیه هنگام بارگذاری صفحه
 document.addEventListener('DOMContentLoaded', function() {
-    // بررسی وضعیت احراز هویت
-    checkAuthStatus();
+    // بررسی وضعیت ورود کاربر
+    checkLoginStatus();
     
     // رویدادها
     document.getElementById('login-btn').addEventListener('click', login);
-    document.getElementById('register-btn').addEventListener('click', register);
     document.getElementById('logout-btn').addEventListener('click', logout);
     document.getElementById('close-video').addEventListener('click', closeVideo);
     document.getElementById('close-comments').addEventListener('click', closeComments);
     document.getElementById('submit-comment').addEventListener('click', addComment);
-    document.getElementById('menu-toggle').addEventListener('click', toggleMenu);
     
-    // رویداد برای تغییر فرم‌ها
-    document.getElementById('show-register').addEventListener('click', showRegisterForm);
-    document.getElementById('show-login').addEventListener('click', showLoginForm);
+    // رویداد منوی همبرگری
+    document.getElementById('hamburger-menu').addEventListener('click', toggleMenu);
     
-    // امکان ورود با دکمه Enter
-    document.getElementById('password').addEventListener('keypress', function(e) {
+    // رویداد جستجو
+    document.getElementById('search-btn').addEventListener('click', function() {
+        const query = document.getElementById('search-input').value;
+        searchMovies(query);
+        hideSuggestions();
+    });
+    
+    // رویداد جستجو با کلید Enter
+    document.getElementById('search-input').addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
-            login();
+            const query = this.value;
+            searchMovies(query);
+            hideSuggestions();
         }
     });
     
-    document.getElementById('reg-password').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            register();
-        }
+    // رویدادهای پیشنهادات جستجو
+    document.getElementById('search-input').addEventListener('input', function() {
+        showSuggestions(this.value);
+    });
+    
+    document.getElementById('search-input').addEventListener('blur', function() {
+        setTimeout(hideSuggestions, 200);
+    });
+    
+    document.getElementById('search-input').addEventListener('focus', function() {
+        showSuggestions(this.value);
+    });
+    
+    // رویدادهای فیلتر ژانر
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const genre = this.getAttribute('data-genre');
+            filterMoviesByGenre(genre);
+            document.getElementById('search-input').value = '';
+            hideSuggestions();
+        });
     });
     
     // بستن ویدئو با کلیک خارج از آن
@@ -432,6 +561,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // رندر کردن فیلم‌ها
-    renderMovies();
+    // امکان ورود با دکمه Enter
+    document.getElementById('password').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            login();
+        }
+    });
+    
+    // بستن منو با کلیک خارج از آن
+    document.addEventListener('click', function(e) {
+        const navMenu = document.getElementById('nav-menu');
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        
+        if (navMenu.classList.contains('show') && 
+            !navMenu.contains(e.target) && 
+            !hamburgerMenu.contains(e.target)) {
+            navMenu.classList.remove('show');
+        }
+    });
 });

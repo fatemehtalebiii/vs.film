@@ -19,8 +19,8 @@ body {
     padding: 0 15px;
 }
 
-/* صفحه احراز هویت */
-.auth-container {
+/* صفحه لاگین */
+.login-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +28,7 @@ body {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
 
-.auth-form {
+.login-form {
     background-color: rgba(26, 26, 46, 0.9);
     padding: 30px;
     border-radius: 10px;
@@ -37,7 +37,7 @@ body {
     max-width: 400px;
 }
 
-.auth-form h2 {
+.login-form h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #e94560;
@@ -62,7 +62,7 @@ body {
     color: #f0f0f0;
 }
 
-.auth-btn {
+.login-btn {
     width: 100%;
     padding: 12px;
     background-color: #e94560;
@@ -74,40 +74,19 @@ body {
     transition: background-color 0.3s;
 }
 
-.auth-btn:hover {
+.login-btn:hover {
     background-color: #d32f44;
 }
 
-.form-switcher {
+.login-footer {
     text-align: center;
     margin-top: 20px;
     color: #a0a0a0;
 }
 
-.form-switcher a {
+.login-footer a {
     color: #e94560;
     text-decoration: none;
-    cursor: pointer;
-}
-
-/* پیام‌های خطا و موفقیت */
-.alert {
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.alert-error {
-    background-color: rgba(233, 69, 96, 0.2);
-    color: #e94560;
-    border: 1px solid #e94560;
-}
-
-.alert-success {
-    background-color: rgba(46, 204, 113, 0.2);
-    color: #2ecc71;
-    border: 1px solid #2ecc71;
 }
 
 /* محتوای اصلی سایت (پس از لاگین) */
@@ -122,7 +101,7 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .header-content {
@@ -169,35 +148,56 @@ header {
 }
 
 /* منوی همبرگری */
-.menu-toggle {
+.hamburger-menu {
     display: none;
-    background: none;
-    border: none;
-    color: #f0f0f0;
-    font-size: 1.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
     cursor: pointer;
+}
+
+.hamburger-menu span {
+    height: 3px;
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 3px;
+    transition: all 0.3s;
+}
+
+nav {
+    position: relative;
 }
 
 nav ul {
     display: flex;
     list-style: none;
     margin-top: 15px;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 15px;
+    margin-bottom: 10px;
 }
 
 nav ul li a {
     color: #f0f0f0;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: all 0.3s;
     padding: 8px 12px;
     border-radius: 4px;
+    display: flex;
+    align-items: center;
 }
 
-nav ul li a:hover {
+nav ul li a i {
+    margin-left: 5px;
+}
+
+nav ul li a:hover, nav ul li a.active {
     color: #e94560;
     background-color: rgba(233, 69, 96, 0.1);
 }
@@ -206,6 +206,7 @@ nav ul li a:hover {
 .search-container {
     display: flex;
     margin: 20px 0;
+    position: relative;
 }
 
 .search-container input {
@@ -226,10 +227,41 @@ nav ul li a:hover {
     border-radius: 0 30px 30px 0;
     cursor: pointer;
     transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.search-container button i {
+    margin-left: 5px;
 }
 
 .search-container button:hover {
     background-color: #d32f44;
+}
+
+/* پیشنهادات جستجو */
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #1a1a2e;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 100;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.search-suggestion {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-suggestion:hover {
+    background-color: #0f3460;
 }
 
 /* بخش فیلم‌ها */
@@ -243,6 +275,12 @@ nav ul li a:hover {
     color: #e94560;
     border-right: 4px solid #e94560;
     padding-right: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.section-title i {
+    margin-left: 10px;
 }
 
 .movies-grid {
@@ -281,6 +319,16 @@ nav ul li a:hover {
     color: #f0f0f0;
 }
 
+.movie-genre {
+    display: inline-block;
+    background-color: #0f3460;
+    color: #a0a0a0;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
 .movie-description {
     color: #a0a0a0;
     font-size: 0.9rem;
@@ -303,6 +351,12 @@ nav ul li a:hover {
     cursor: pointer;
     font-weight: 500;
     transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.btn i {
+    margin-left: 5px;
 }
 
 .btn-watch {
@@ -330,6 +384,21 @@ nav ul li a:hover {
 
 .btn-comments:hover {
     background-color: #3f43a1;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px;
+    color: #a0a0a0;
+    font-size: 1.2rem;
+    grid-column: 1 / -1;
+}
+
+.no-results i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+    color: #e94560;
 }
 
 /* بخش پخش کننده ویدئو */
@@ -516,6 +585,8 @@ footer {
 .footer-links {
     display: flex;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .footer-links a {
@@ -544,51 +615,70 @@ footer {
     .user-info {
         margin-top: 15px;
         flex-direction: column;
-        align-items: center;
+        gap: 10px;
     }
     
-    .menu-toggle {
-        display: block;
+    /* منوی همبرگری */
+    .hamburger-menu {
+        display: flex;
         position: absolute;
-        top: 15px;
-        left: 15px;
+        left: 20px;
+        top: 20px;
     }
     
     nav ul {
-        flex-direction: column;
         display: none;
+        flex-direction: column;
         width: 100%;
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        background-color: #1a1a2e;
         position: absolute;
-        top: 60px;
+        top: 100%;
+        left: 0;
         right: 0;
-        z-index: 99;
+        z-index: 999;
+        padding: 15px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
     
-    nav ul.active {
+    nav ul.show {
         display: flex;
     }
     
     nav ul li {
-        margin: 0;
+        margin: 5px 0;
         width: 100%;
-        text-align: center;
     }
     
     nav ul li a {
-        display: block;
-        padding: 15px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 12px;
+        justify-content: center;
     }
     
     .movies-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
     
-    .movie-poster {
-        height: 250px;
+    .video-player, .comments-container {
+        width: 95%;
+    }
+    
+    .movie-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .movie-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .footer-links a {
+        margin: 5px 0;
     }
     
     .search-container {
@@ -603,46 +693,29 @@ footer {
     .search-container button {
         border-radius: 30px;
         width: 100%;
-    }
-    
-    .video-player, .comments-container {
-        width: 95%;
-        margin: 10px;
-    }
-    
-    .footer-links {
-        flex-direction: column;
-    }
-    
-    .footer-links a {
-        margin: 5px 0;
+        justify-content: center;
     }
 }
 
-/* بهبود برای دستگاه‌های بسیار کوچک */
 @media (max-width: 480px) {
-    .auth-form {
-        padding: 20px;
-        margin: 10px;
+    .logo {
+        font-size: 1.5rem;
     }
     
-    .movie-actions {
-        flex-direction: column;
-        gap: 10px;
+    .user-info span {
+        font-size: 0.9rem;
     }
     
-    .btn {
-        width: 100%;
-        text-align: center;
+    .logout-btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
     }
     
-    .video-header {
-        flex-direction: column;
-        text-align: center;
+    .section-title {
+        font-size: 1.5rem;
     }
     
-    .comments-header {
-        flex-direction: column;
-        text-align: center;
+    .movie-card {
+        margin-bottom: 15px;
     }
 }
